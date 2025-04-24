@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import { toast } from "sonner";
-import LlamaChat from "@/components/LlamaChat";
 import ApiQueryBox from "@/components/ApiQueryBox";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -19,14 +19,14 @@ const Index = () => {
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+      <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-gray-900 dark:to-slate-900">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+                <h1 className="text-3xl font-bold tracking-tighter bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent sm:text-4xl md:text-5xl lg:text-6xl/none">
                   API Key Nexus Hub
                 </h1>
                 <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
@@ -36,22 +36,22 @@ const Index = () => {
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
                 <Link to={isLoggedIn ? "/dashboard" : "/login"}>
-                  <Button className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1">
+                  <Button className="inline-flex h-10 items-center justify-center rounded-md bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 px-8 text-sm font-medium text-white shadow transition-colors">
                     {isLoggedIn ? "Go to Dashboard" : "Get Started"} 
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
                 <Link to="/api-docs">
-                  <Button variant="outline" className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1">
+                  <Button variant="outline" className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background/60 backdrop-blur-sm px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground">
                     API Documentation
                   </Button>
                 </Link>
               </div>
             </div>
             <div className="flex items-center justify-center">
-              <Card className="w-full max-w-md animate-fade-in">
+              <Card className="w-full max-w-md animate-fade-in bg-white/80 backdrop-blur-sm dark:bg-gray-800/80">
                 <CardHeader>
-                  <CardTitle>Try Our LLaMA 3.2 API</CardTitle>
+                  <CardTitle>Try Our API</CardTitle>
                   <CardDescription>
                     Experience the power of our API with this live demo
                   </CardDescription>
@@ -63,11 +63,12 @@ const Index = () => {
                   <Button 
                     variant="outline" 
                     onClick={() => toast.info("Get your API key to unlock full capabilities!")}
+                    className="bg-white/50 backdrop-blur-sm dark:bg-gray-800/50"
                   >
                     Learn More
                   </Button>
                   <Link to={isLoggedIn ? "/get-api-key" : "/login"}>
-                    <Button>
+                    <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
                       {isLoggedIn ? "Get API Key" : "Sign Up to Access"}
                     </Button>
                   </Link>
@@ -78,50 +79,32 @@ const Index = () => {
         </div>
       </section>
 
-      {/* LLaMA 3.2 Demo Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center space-y-8">
-            <div className="text-center space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                Try LLaMA 3.2
-              </h2>
-              <p className="text-muted-foreground max-w-[600px] mx-auto">
-                Experience the power of our LLaMA 3.2 API with this interactive demo. 
-                Generate responses, analyze text, and see what's possible.
-              </p>
-            </div>
-            <LlamaChat />
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
+      {/* Features Section with enhanced styling */}
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-gray-900">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Features</h2>
+              <h2 className="text-3xl font-bold tracking-tighter bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent sm:text-5xl">Features</h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                 Our platform provides secure API key management with identity verification
               </p>
             </div>
           </div>
           <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-3 lg:gap-12">
-            <div className="grid gap-1">
-              <h3 className="text-lg font-bold">Identity Verification</h3>
+            <div className="group relative overflow-hidden rounded-lg p-6 bg-gradient-to-b from-purple-50 to-white dark:from-gray-800 dark:to-gray-900 shadow-lg transition-all hover:shadow-xl">
+              <h3 className="text-lg font-bold text-purple-600 dark:text-purple-400">Identity Verification</h3>
               <p className="text-sm text-gray-500 dark:text-gray-400">
                 Verify your identity using your student ID to access our APIs
               </p>
             </div>
-            <div className="grid gap-1">
-              <h3 className="text-lg font-bold">API Key Management</h3>
+            <div className="group relative overflow-hidden rounded-lg p-6 bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 shadow-lg transition-all hover:shadow-xl">
+              <h3 className="text-lg font-bold text-blue-600 dark:text-blue-400">API Key Management</h3>
               <p className="text-sm text-gray-500 dark:text-gray-400">
                 Generate and manage multiple API keys for different projects
               </p>
             </div>
-            <div className="grid gap-1">
-              <h3 className="text-lg font-bold">Usage Analytics</h3>
+            <div className="group relative overflow-hidden rounded-lg p-6 bg-gradient-to-b from-indigo-50 to-white dark:from-gray-800 dark:to-gray-900 shadow-lg transition-all hover:shadow-xl">
+              <h3 className="text-lg font-bold text-indigo-600 dark:text-indigo-400">Usage Analytics</h3>
               <p className="text-sm text-gray-500 dark:text-gray-400">
                 Track API usage and monitor requests per key on your dashboard
               </p>
@@ -129,6 +112,8 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };
