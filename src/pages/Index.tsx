@@ -1,10 +1,10 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import { toast } from "sonner";
+import LlamaChat from "@/components/LlamaChat";
 import ApiQueryBox from "@/components/ApiQueryBox";
 
 const Index = () => {
@@ -74,6 +74,24 @@ const Index = () => {
                 </CardFooter>
               </Card>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* LLaMA 3.2 Demo Section */}
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center space-y-8">
+            <div className="text-center space-y-2">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+                Try LLaMA 3.2
+              </h2>
+              <p className="text-muted-foreground max-w-[600px] mx-auto">
+                Experience the power of our LLaMA 3.2 API with this interactive demo. 
+                Generate responses, analyze text, and see what's possible.
+              </p>
+            </div>
+            <LlamaChat />
           </div>
         </div>
       </section>
