@@ -1,4 +1,3 @@
-
 import { Github, Mail, Twitter, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -10,7 +9,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-purple-800 dark:text-purple-200">About</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Secure API key management platform for D.Y. Patil College of Engineering students.
+              Secure API key management platform for D.Y. Patil College of Engineering, Salokhenagar students.
             </p>
           </div>
           <div className="space-y-4">
@@ -48,7 +47,7 @@ const Footer = () => {
         </div>
         <div className="mt-8 pt-8 border-t border-purple-100 dark:border-slate-700">
           <p className="text-center text-sm text-gray-600 dark:text-gray-400">
-            © {new Date().getFullYear()} API Key Nexus Hub. All rights reserved.
+            © {new Date().getFullYear()} D.Y. Patil Salokhenagar API Nexus. All rights reserved.
           </p>
         </div>
       </div>
@@ -57,4 +56,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

@@ -32,7 +32,7 @@ const Navbar = () => {
       <div className="container flex h-16 items-center">
         <Link to="/" className="mr-6 flex items-center space-x-2">
           <span className="hidden font-bold sm:inline-block">
-            API Key Nexus Hub
+            D.Y. Patil Salokhenagar API Nexus
           </span>
         </Link>
 

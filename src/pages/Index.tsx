@@ -27,11 +27,11 @@ const Index = () => {
               <div className="space-y-4">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
                   <span className="bg-gradient-to-r from-gray-700 via-gray-800 to-black bg-clip-text text-transparent">
-                    API Key Nexus Hub
+                    D.Y. Patil Salokhenagar API Nexus
                   </span>
                 </h1>
                 <p className="max-w-[600px] text-xl text-gray-700 animate-slide-in-right">
-                  Secure API key management for D.Y. Patil College of Engineering students. 
+                  Secure API key management for D.Y. Patil College of Engineering, Salokhenagar students. 
                   Verify your identity and access powerful APIs with precision and ease.
                 </p>
               </div>
