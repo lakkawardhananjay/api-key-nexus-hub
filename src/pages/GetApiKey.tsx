@@ -1,6 +1,6 @@
 
-import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import {
   Card,
   CardContent,
@@ -20,8 +20,15 @@ const GetApiKey = () => {
   const [fileName, setFileName] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isVerifying, setIsVerifying] = useState<boolean>(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if the user is logged in
+    const token = localStorage.getItem("auth_token");
+    setIsLoggedIn(!!token);
+  }, []);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -91,6 +98,41 @@ const GetApiKey = () => {
       setIsLoading(false);
     }
   };
+
+  if (!isLoggedIn) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background p-4">
+        <Card className="w-full max-w-md animate-fade-in">
+          <CardHeader className="space-y-1">
+            <CardTitle className="text-2xl font-bold">Authentication Required</CardTitle>
+            <CardDescription>
+              Please log in or sign up to get your API key
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="space-y-2">
+              <p className="text-sm text-muted-foreground">
+                You need to be authenticated to verify your identity and get an API key. 
+                Please log in to your account or create a new one.
+              </p>
+            </div>
+          </CardContent>
+          <CardFooter className="flex flex-col space-y-4">
+            <Link to="/login" className="w-full">
+              <Button className="w-full" type="button">
+                Log In
+              </Button>
+            </Link>
+            <Link to="/signup" className="w-full">
+              <Button className="w-full" variant="outline" type="button">
+                Sign Up
+              </Button>
+            </Link>
+          </CardFooter>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
